@@ -42,7 +42,7 @@ mysql = MySQL(app)
 @app.route('/index')
 @is_logged_in
 def index():
-    return render_template('home.html')
+    return render_template('Home.html')
     
 
 @app.route('/')
