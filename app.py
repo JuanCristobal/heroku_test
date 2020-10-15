@@ -1,9 +1,7 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, logging, request, send_file
 from flask_mysqldb import MySQL
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
-from filler import Filler
 from docxtpl import DocxTemplate
-from mailmerge import MailMerge
 import array
 from functools import wraps
 
