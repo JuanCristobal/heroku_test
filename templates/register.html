@@ -1,0 +1,103 @@
+
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Register</h1>
+  {% from "_formhelpers.html" import render_field %}
+  <form method="POST" action="">
+    <div class="form-group">
+      {{render_field(form.nombre, class_="form-control")}}
+    </div> 
+    <div class="form-group">
+      {{render_field(form.rut, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.fecha_aplicacion, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.fecha_nacimiento, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.nacionalidad, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.email, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.derivacion_empresa, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.curso_cap, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.nivelacion_estudio, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.apoyo_soclab, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.der_coloc, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.evycertif_comp, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.emprendimiento, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.apoyosocialxtra, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.der_orientador, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.seguro_cesantia, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.mot_derivacion, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.sintat_inicial, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.tel_not, class_="form-control")}}
+    </div>    
+    <div class="form-group">
+      {{render_field(form.tel_alt, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.experiencia, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.nivel_estudios, class_="form-control")}}
+    </div>        
+    <div class="form-group">
+      {{render_field(form.bne, class_="form-control")}}
+    </div>    
+    <div class="form-group">
+      {{render_field(form.plat_municipal, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.otro, class_="form-control")}}
+    </div>        
+    <div class="form-group">
+      {{render_field(form.profesion, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.trabajos_previos, class_="form-control")}}
+    </div>        
+    <div class="form-group">
+      {{render_field(form.direccion, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.comuna, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.discapacidad, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.preferencias, class_="form-control")}}
+    </div>
+    <p><input type="submit" class="btn btn-primary" value="Submit"></p>
+  </form>
+{% endblock %}

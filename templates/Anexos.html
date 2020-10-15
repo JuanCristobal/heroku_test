@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Login</h1>
+  {% from "_formhelpers.html" import render_field %}
+  <form action="" method="POST">
+    <div class="form-group">
+        {{render_field(form.rut, class_="form-control")}}
+      </div>
+      <p><input type="submit" class="btn btn-primary" value="Submit"></p>
+  </form>
+{% endblock %}
