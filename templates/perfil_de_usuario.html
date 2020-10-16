@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<style>
+  .usuario {
+    background-color:rgb(223, 223, 222);
+    color: black;
+    border: 1px solid grey;
+    margin: 20px;
+    padding: 20px;
+
+  }
+</style>
+<div class="usuario">
+    <h4 class="usuario-nombre">
+      {{usuario['nombre']}}  <small>RUT: {{usuario['rut']}}</small>
+    </h4>
+    <p class="usuario-datos">Nacionalidad: {{usuario['nacionalidad']|default('Unknown', True)}}</p>
+    <p class="usuario-datos">Experiencia: {{usuario['experiencia']}}</p>
+    <p class="usuario-datos">Fecha de Nacimiento: {{usuario['fecha_nacimiento']}}</p>
+    <p class="usuario-datos">Email: {{usuario['email']}}</p>
+    <p class="usuario-datos">Dirección: {{usuario['direccion']}}, {{usuario['comuna']}}</p>
+    <p class="usuario-datos">Teléfono Contacto: {{usuario['tel_not']}}</p>
+    <p class="usuario-datos">Teléfono Alternativo: {{usuario['tel_alt']}}</p>
+    <p class="usuario-datos">Profesión: {{usuario['profesion']}}</p>
+    <p class="usuario-datos">Trabajos Previos: {{usuario['trabajos_previos']}}</p>
+    <p class="usuario-datos">Profesión: {{usuario['profesion']}}</p>
+    <p class="usuario-datos">Preferencias: {{usuario['preferencias']}}</p>
+  </div>
+</div>
+
+{% endblock %}

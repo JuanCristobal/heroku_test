@@ -7,14 +7,13 @@ from functools import wraps
 
 
 
-
 def is_logged_in(f):
     @wraps(f)
     def wrap(*args, **kwargs):
         if 'logged_in' in session:
             return f(*args, **kwargs)
         else:
-            flash("no tienes permisos", 'danger')
+            flash("No tienes permisos", 'danger')
             return redirect(url_for('Login'))
     return wrap            
 
@@ -24,6 +23,10 @@ def si_no(var1, var2):
         return "X"
     else :
         return " "
+
+
+
+
 
 app = Flask(__name__, template_folder='templates')
 application = app
@@ -56,7 +59,7 @@ class Formulario(Form):
     fecha_aplicacion = StringField('Fecha de Aplicación', [validators.Length(min=0,max=10)])
     fecha_nacimiento = StringField('Fecha de Nacimiento: dd/mm/yy', [validators.Length(min=0,max=10)])
     nacionalidad = StringField('Nacionalidad', [validators.Length(min=4,max=18)])
-    email = StringField('Email', [validators.Length(min=0,max=20)])
+    email = StringField('Email', [validators.Length(min=0,max=35)])
     derivacion_empresa = StringField('Derivado Entrevista Laboral (Empresa)', [validators.Length(min=0,max=50)])
     curso_cap = StringField('Curso de capacitación', [validators.Length(min=0,max=50)])
     nivelacion_estudio = StringField('Nivelación de Estudio', [validators.Length(min=0,max=50)])
@@ -86,7 +89,7 @@ class Formulario(Form):
 class Funcionario(Form):
     #solamente una prueba, hay que agregar el resto de los parametros 
     nombre_funcionario = StringField('Nombre del Funcionario', [validators.Length(min = 4, max = 50)])
-    contraseña = PasswordField('contraseña', [
+    contraseña = PasswordField('Contraseña', [
         validators.DataRequired()
     ])     
     
@@ -144,6 +147,31 @@ def registro():
 
     return render_template('register.html', form=form)    
 
+@app.route('/perfil', methods=['GET', 'POST'])
+@is_logged_in
+def ver_perfil():
+    form = Formulario(request.form)
+    if request.method == 'POST':
+        RUT = form.rut.data
+ 
+        cur = mysql.connection.cursor()
+        
+        buscado = cur.execute("SELECT * FROM usuario WHERE rut= %s", [RUT])
+              
+        if buscado <= 0:
+            flash('Usuario no encontrado')
+            return render_template('perfil.html', form=form)      
+
+        if buscado > 0:
+            data = cur.fetchone()
+
+        cur.close()
+        flash('usuario encontrado')
+
+        return render_template('perfil_de_usuario.html', usuario=data)
+
+    flash('Página de búsqueda de perfil de usuario')
+    return render_template('perfil.html', form=form) 
 
 @app.route('/Anexos', methods =['GET','POST'])
 @is_logged_in
@@ -153,14 +181,10 @@ def Template():
         RUT = form.rut.data
         test = DocxTemplate('template_anexo1.5.docx')
  
-
         cur = mysql.connection.cursor()
         
-      
         resultado = cur.execute("SELECT * FROM usuario WHERE rut= %s", [RUT])
-       
-        
-        
+
         if resultado > 0:
             data= cur.fetchone()
             
