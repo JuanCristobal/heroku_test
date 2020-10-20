@@ -2,102 +2,274 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-  <h1>Register</h1>
+  
+<style>
+  .form-group{
+    background-color:rgb(223, 223, 222);
+    border-radius: 25px;
+    color: black;
+    border: 1px solid rgb(189, 189, 189);
+    margin: 20px;
+    padding: 7px;
+    overflow: auto;
+
+  }
+  .form-control{
+    border-radius: 5px;
+    border: 1px solid grey;
+  }
+  .btn-primary{
+    border-radius: 5px;
+    border: 1px solid grey;
+    padding: 5px;
+    margin: 20px;
+  }
+  .form-sss{
+    background-color:rgb(223, 223, 222);
+    border-radius: 25px;
+    color: black;
+    border: 1px solid grey;
+    margin: 0px;
+    padding: 7px;
+    overflow: auto;
+    justify-content: space-between;
+	  display: flex;
+  }
+</style>
+
+
+  <h1>Registro de Usuario Nuevo</h1>
   {% from "_formhelpers.html" import render_field %}
   <form method="POST" action="">
-    <div class="form-group">
-      {{render_field(form.nombre, class_="form-control")}}
+    <div class="form-group">                                        <!-- Antecedentes Generales-->
+    
+    <h2>Antecedentes Generales</h2>                               
+    
+    <div class="form-group">                                      <!-- Nombre -->
+      {{render_field(form.nombre, class_="form-control")}}          
     </div> 
-    <div class="form-group">
-      {{render_field(form.rut, class_="form-control")}}
+
+    <div class="form-group">                                      <!-- RUT -->
+      {{render_field(form.rut, class_="form-control")}}             
     </div>
-    <div class="form-group">
-      {{render_field(form.fecha_aplicacion, class_="form-control")}}
+
+    <div class="form-group">                                      <!-- Fecha Aplicacion-->
+      <label for="fecha_aplicacion">Fecha de Aplicación:</label>    
+      <input type="date"  name="fecha_aplicacion">
     </div>
-    <div class="form-group">
-      {{render_field(form.fecha_nacimiento, class_="form-control")}}
+
+    <div class="form-group">                                      <!-- Fecha Nacimiento-->
+      <label for="fecha_nacimiento">Fecha de Nacimiento:</label>    
+      <input type="date"  name="fecha_nacimiento">
     </div>
-    <div class="form-group">
-      {{render_field(form.nacionalidad, class_="form-control")}}
+
+    <div class="form-group">                                      <!--Nacionalidad-->
+      {{render_field(form.nacionalidad, class_="form-control")}}    
     </div>
-    <div class="form-group">
-      {{render_field(form.email, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.derivacion_empresa, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.curso_cap, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.nivelacion_estudio, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.apoyo_soclab, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.der_coloc, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.evycertif_comp, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.emprendimiento, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.apoyosocialxtra, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.der_orientador, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.seguro_cesantia, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.mot_derivacion, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.sintat_inicial, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.tel_not, class_="form-control")}}
+
+    <div class="form-group">                                      <!--Telefono de notificaciones-->
+      {{render_field(form.tel_not, class_="form-control")}}         
     </div>    
-    <div class="form-group">
-      {{render_field(form.tel_alt, class_="form-control")}}
+
+    <div class="form-group">                                      <!--Telefono alternativo-->
+      {{render_field(form.tel_alt, class_="form-control")}}         
     </div>
-    <div class="form-group">
-      {{render_field(form.experiencia, class_="form-control")}}
+
+    <div class="form-group">                                      <!--Email-->
+      {{render_field(form.email, class_="form-control")}}           
     </div>
-    <div class="form-group">
-      {{render_field(form.nivel_estudios, class_="form-control")}}
-    </div>        
-    <div class="form-group">
-      {{render_field(form.bne, class_="form-control")}}
-    </div>    
-    <div class="form-group">
-      {{render_field(form.plat_municipal, class_="form-control")}}
-    </div>
-    <div class="form-group">
-      {{render_field(form.otro, class_="form-control")}}
-    </div>        
-    <div class="form-group">
+
+    <div class="form-group">                                      <!--Profesión-->
       {{render_field(form.profesion, class_="form-control")}}
     </div>
-    <div class="form-group">
+
+    <div class="form-group">                                      <!--Trabajos previos-->
       {{render_field(form.trabajos_previos, class_="form-control")}}
     </div>        
-    <div class="form-group">
+
+    <div class="form-group">                                      <!--Direccion-->
       {{render_field(form.direccion, class_="form-control")}}
     </div>
-    <div class="form-group">
+
+    <div class="form-group">                                      <!--Comuna-->
       {{render_field(form.comuna, class_="form-control")}}
     </div>
-    <div class="form-group">
-      {{render_field(form.discapacidad, class_="form-control")}}
-    </div>
-    <div class="form-group">
+
+    <div class="form-group">                                      <!--Discapacidad-->
+      <p>Discapacidad</p>                                         
+      <input type="radio" name="discapacidad" value="Si" id="discapacidad_si">
+      <label for="discapacidad_si">Si  </label>
+      <input type="radio" name="discapacidad" value="No" id="discapacidad_no">
+      <label for="discapacidad_no">No  </label>
+    </div>    
+
+    <div class="form-group">                                      <!--Nivel de Estudios-->
+      <p>Nivel de Estudios</p>                                      
+      <input type="radio" name="nivel_estudios" value="Básica Incompleta" id="nivel_estudios_basica_incompleta">
+      <label for="nivel_estudios_basica_incompleta">Básica Incompleta  </label>
+
+      <input type="radio" name="nivel_estudios" value="Básica Completa" id="nivel_estudios_basica_completa">
+      <label for="nivel_estudios_basica_completa">Básica Completa  </label>
+      <br>
+      <input type="radio" name="nivel_estudios" value="Media Incompleta" id="nivel_estudios_media_incompleta">
+      <label for="nivel_estudios_media_incompleta">Media Incompleta  </label>
+
+      <input type="radio" name="nivel_estudios" value="Media Completa" id="nivel_estudios_media_completa">
+      <label for="nivel_estudios_media_completa">Media Completa  </label> 
+      <br>
+      <input type="radio" name="nivel_estudios" value="Técnica Incompleta" id="nivel_estudios_tecnica_incompleta">
+      <label for="nivel_estudios_tecnica_incompleta">Técnica Incompleta  </label>
+
+      <input type="radio" name="nivel_estudios" value="Técnica Completa" id="nivel_estudios_tecnica_completa">
+      <label for="nivel_estudios_tecnica_completa">Técnica Completa  </label>
+      <br>
+      <input type="radio" name="nivel_estudios" value="Superior Incompleta" id="nivel_estudios_superior_incompleta">
+      <label for="nivel_estudios_superior_incompleta">Superior Incompleta  </label>
+
+      <input type="radio" name="nivel_estudios" value="Superior completa" id="nivel_estudios_superior_completa">
+      <label for="nivel_estudios_superior_completa">Superior Completa  </label>
+      
+    </div>        
+
+    <div class="form-group">                                      <!--Preferencias-->
       {{render_field(form.preferencias, class_="form-control")}}
     </div>
-    <p><input type="submit" class="btn btn-primary" value="Submit"></p>
+
+    <div class="form-group">                                      <!--Experiencia-->
+      <p>Experiencia</p>                                            
+      <input type="checkbox" id="obrero" name="experiencia" value="Obrero">
+      <label for="obrero">Obrero  </label>  
+
+      <input type="checkbox" id="cajero_bancario" name="experiencia" value="Cajero Bancario">
+      <label for="cajero_bancario">Cajero Bancario  </label>  
+
+      <input type="checkbox" id="guardia_seguridad" name="experiencia" value="Guardia de Seguridad">
+      <label for="guardia_seguridad">Guardia de Seguridad  </label>  
+
+      <input type="checkbox" id="reponedor" name="experiencia" value="Reponedor">
+      <label for="reponedor">Reponedor  </label>  
+    </div>
+    
+    </div>                                         
+
+    <div class="form-group">                                        <!-- Información Laboral-->
+      <h2>Información Laboral</h2>
+      <p style="font-size: 16px">La información que se utiliza para respaldar la atención inicial está disponible en:</p>
+      <p style="font-size: 12px">(Puede marcar más de una opción)</p>
+
+      <p>BNE</p>                                                    <!--BNE-->
+        <input type="radio" name="bne" value="Si" id="bne_si">
+        <label for="bne_si">Si  </label>
+        <input type="radio" name="bne" value="No" id="bne_no">
+        <label for="bne_no">No  </label>   
+
+        <p>Plataforma Municipal</p>
+        <div>
+        <input type="radio" name="plat_municipal" value="Si" id="plat_municipal_si">
+        <label for="plat_municipal_si">Si  </label>
+
+        <input type="radio" name="plat_municipal" value="No" id="plat_municipal_no">
+        <label for="plat_municipal_no">No  </label>
+        </div> 
+        {{render_field(form.otro, class_="form-control")}}          <!--Otro-->
+
+    </div>    
+
+    <div class="form-group">                                        <!-- Derivación -->
+
+    <h2>Derivación</h2>
+    <p style="font-size: 16px">(Para derivaciones extra OMIL recuerde completar la ficha de derivación)</p>
+
+    <div class="form-group">
+      <p>Derivado a Profesional Orientador Laboral</p>                      <!--Derivado a orientador de profesion-->
+      <input type="radio" name="der_orientador" value="si" id="der_orientador_si">
+      <label for="der_orientador_si">Si  </label>
+      <input type="radio" name="der_orientador" value="no" id="der_orientador_no">
+      <label for="der_orientador_no">No  </label>
+    </div>    
+
+    <div class="form-group">                        
+      <p>Nivelación de Estudios</p>                                 <!--Nivelacion de Estudios-->
+      <input type="radio" name="nivelacion_estudio" value="si" id="nivelacion_estudio_si">
+      <label for="nivelacion_estudio_si">Si  </label>
+      <input type="radio" name="nivelacion_estudio" value="no" id="nivelacion_estudio_no">
+      <label for="nivelacion_estudio_no">No  </label>
+    </div>  
+
+    <div class="form-group">
+      <p>Curso de Capacitación</p>                                  <!-- Curso de Capacitacion-->
+      <input type="radio" name="curso_cap" value="si" id="curso_cap_si">
+      <label for="curso_cap_si">Si  </label>
+      <input type="radio" name="curso_cap" value="no" id="curso_cap_no">
+      <label for="curso_cap_no">No  </label>
+    </div>  
+
+    <div class="form-group">
+      <p>Derivación a Entrevista Laboral (Empresa)</p>                                   <!-- Derivacion a Empresa-->
+      <input type="radio" name="derivacion_empresa" value="si" id="derivacion_empresa_si">
+      <label for="derivacion_empresa_si">Si  </label>
+      <input type="radio" name="derivacion_empresa" value="no" id="derivacion_empresa_no">
+      <label for="derivacion_empresa_no">No  </label>
+    </div>
+
+    <div class="form-group">
+      <p>Evaluación y Certificación de Competencia Laboral</p>      <!--Evaluación y Certificación de Competencia Laboral-->
+      <input type="radio" name="evycertif_comp" value="si" id="evycertif_comp_si">
+      <label for="evycertif_comp_si">Si  </label>
+      <input type="radio" name="evycertif_comp" value="no" id="evycertif_comp_no">
+      <label for="evycertif_comp_no">No  </label>
+    </div>
+
+    <div class="form-group">
+      <p>Apoyo Social Extra OMIL</p>                                <!--Apoyo Social extra omil-->
+      <input type="radio" name="apoyosocialxtra" value="si" id="apoyosocialextra_si">
+      <label for="apoyosocialextra_si">Si  </label>
+      <input type="radio" name="apoyosocialxtra" value="no" id="apoyosocialextra_no">
+      <label for="apoyosocialextra_no">No  </label>
+    </div>
+
+    <div class="form-group">
+      <p>Emprendimiento</p>                                         <!--Emprendimiento-->
+      <input type="radio" name="emprendimiento" value="si" id="emprendimiento_si">
+      <label for="emprendimiento_si">Si  </label>
+      <input type="radio" name="emprendimiento" value="no" id="emprendimiento_no">
+      <label for="emprendimiento_no">No  </label>
+    </div>
+    
+    <div class="form-group">
+      <p>Derivado a Colocación Laboral</p>                          <!--Derivado a Colocacion Laboral-->
+      <input type="radio" name="der_coloc" value="si" id="der_coloc_si">
+      <label for="der_coloc_si">Si  </label>
+      <input type="radio" name="der_coloc" value="no" id="der_coloc_no">
+      <label for="der_coloc_no">No  </label>
+    </div>
+
+    <div class="form-group">
+      <p>Apoyo Socio-Laboral</p>                                    <!--Apoyo Socio-Laboral-->
+      <input type="radio" name="apoyo_soclab" value="si" id="apoyo_soclab_si">
+      <label for="apoyo_soclab_si">Si  </label>
+      <input type="radio" name="apoyo_soclab" value="no" id="apoyo_soclab_no">
+      <label for="apoyo_soclab_no">No  </label>
+    </div>
+
+    <div class="form-group">
+      <p>Seguro de Cesantía</p>                                     <!--Seguro de Cesantía-->
+      <input type="radio" name="seguro_cesantia" value="si" id="seguro_cesantia_si">
+      <label for="seguro_cesantia_si">Si  </label>  
+      <input type="radio" name="seguro_cesantia" value="no" id="seguro_cesantia_no">
+      <label for="seguro_cesantia_no">No  </label>
+    </div>
+
+    <div class="form-group">                                        <!-- Motivo de derivacion-->
+      {{render_field(form.mot_derivacion, class_="form-control")}}
+    </div>
+    <div class="form-group">                                        <!-- Sintesis de atención inicial-->
+      {{render_field(form.sintat_inicial, class_="form-control")}}  
+      <p style="font-size:12px">(El profesional que aplica esta ficha debe indicar sus observaciones, siempre que las hubiera, de la situación laboral del usuario según antecedentes recopilados durante la atención inicial)</p>
+    </div>
+    
+    </div>
+    
+    <p><input type="submit" class="btn btn-primary" value="Registrar Usuario" id="boton"></p>
   </form>
 {% endblock %}

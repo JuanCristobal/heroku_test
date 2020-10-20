@@ -1,0 +1,235 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<style>
+    .form-group{
+        background-color:rgb(223, 223, 222);
+        border-radius: 25px;
+        color: black;
+        border: 1px solid rgb(189, 189, 189);
+        margin: 20px;
+        padding: 7px;
+        overflow: auto;
+  }
+</style>
+
+<h1 margin=20px>Ingresar nueva oferta laboral</h1>
+  {% from "_formhelpers.html" import render_field %}
+  <form action="" method="POST">
+
+    <div class="form-group">                                        <!--Datos de la Empresa-->
+        <h2>Datos de la Empresa</h2>                                    
+
+            <div class="form-group">
+                {{render_field(form.nombre_empresa, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.rut, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                <label for="fecha_solicitud">Fecha de Solicitud</label>
+                <input type="date" name="fecha_solicitud" id="fecha_solicitud">
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.direccion_comercial, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.nombre_solicitante, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.telefono_1, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.telefono_2, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.telefono_3, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.correo_solicitante, class_="form-control")}}
+            </div>
+    </div>
+
+    <div class="form-group">                                        <!--Perfil Laboral y descripcion de la oferta-->
+        <h2>Perfil Laboral y Descripción de la Oferta</h2>
+            <div class="form-group">
+                {{render_field(form.habilidades_requeridas, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.rango_de_edad, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.nivel_estudios_requerido, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.horario_de_trabajo, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.sueldo, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.años_experiencia, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.numero_vacantes, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.tipo_contrato, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.lugar_de_trabajo, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.sexo, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.fecha_entrevista, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.hora_entrevista, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.lugar_entrevista, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+                {{render_field(form.info_entrevista, class_="form-control")}}
+            </div>
+
+    </div>
+
+    <div class="form-group">                                        <!--Documentos solicitados para entrevista-->
+
+        <h2>Documentos Solicitados para la Entrevista </h2>
+        <p style="font-size: 16px">Especifique SOLO lo requerido para el cargo</p>
+                
+                <div class="form-group">
+                    <p>Curriculum</p>
+                    <input type="radio" name="curriculum" value="Si" id="curriculum_si">
+                    <label for="curriculum_si">Si  </label>
+                    <input type="radio" name="curriculum" value="No" id="curriculum_no">
+                    <label for="curriculum_no">No  </label>
+                </div>
+
+                
+                <div class="form-group">
+                    <p>Copia Cédula de Identidad</p>
+                    <input type="radio" name="copia_CI" value="Si" id="copia_CI_si">
+                    <label for="copia_CI_si">Si  </label>
+                    <input type="radio" name="copia_CI" value="No" id="copia_CI_no">
+                    <label for="copia_CI_no">No  </label>
+                </div>
+                
+                
+                <div class="form-group">
+                    <p>Certificado de Antecedentes</p>
+                    <input type="radio" name="certificado_antecedentes" value="Si" id="certificado_antecedentes_si">
+                    <label for="certificado_antecedentes_si">Si  </label>
+                    <input type="radio" name="certificado_antecedentes" value="No" id="certificado_antecedentes_no">
+                    <label for="certificado_antecedentes_no">No  </label>
+                </div>
+
+                
+                <div class="form-group">
+                    <p>Certificado de Estudios</p>
+                    <input type="radio" name="certificado_estudios" value="Si" id="certificado_estudios_si">
+                    <label for="certificado_estudios_si">Si  </label>
+                    <input type="radio" name="certificado_estudios" value="No" id="certificado_estudios_no">
+                    <label for="certificado_estudios_no">No  </label>
+                </div>
+
+                
+                <div class="form-group">
+                    <p>Licencia de Conducir</p>
+                    <input type="radio" name="licencia_conducir" value="Si" id="licencia_conducir_si">
+                    <label for="licencia_conducir_si">Si  </label>
+                    <input type="radio" name="licencia_conducir" value="No" id="licencia_conducir_no">
+                    <label for="licencia_conducir_no">No  </label>
+                </div>
+
+                
+                <div class="form-group">
+                    <p>Hoja de Vida del Conductor</p>
+                    <input type="radio" name="hoja_vida_conductor" value="Si" id="hoja_vida_conductor_si">
+                    <label for="hoja_vida_conductor_si">Si  </label>
+                    <input type="radio" name="hoja_vida_conductor" value="No" id="hoja_vida_conductor_no">
+                    <label for="hoja_vida_conductor_no">No  </label>
+                </div>
+
+                
+                <div class="form-group">
+                    <p>Último Finiquito</p>
+                    <input type="radio" name="ultimo_finiquito" value="Si" id="ultimo_finiquito_si">
+                    <label for="ultimo_finiquito_si">Si  </label>
+                    <input type="radio" name="ultimo_finiquito" value="No" id="ultimo_finiquito_no">
+                    <label for="ultimo_finiquito_no">No  </label>
+                </div>
+
+                
+                <div class="form-group">
+                    <p>Licencia Militar</p>
+                    <input type="radio" name="licencia_militar" value="Si" id="licencia_militar_si">
+                    <label for="licencia_militar_si">Si  </label>
+                    <input type="radio" name="licencia_militar" value="No" id="licencia_militar_no">
+                    <label for="licencia_militar_no">No  </label>
+                </div>
+
+                <div class="form-group">
+                    {{render_field(form.recomendaciones, class_="form-control")}}
+                </div>
+    </div> 
+
+    <div class="form-group">                                        <!--Politicas inclusivas y de insercion social-->
+        <h2>Políticas Inclusivas y de Inserción Laboral</h2>
+        <p style="font-size: 16px">Según sus políticas inclusivas y de inserción laboral, su empresa contrata:</p>
+        
+        <div class="form-group">
+            <p>Extranjeros con Visa Temporaria</p>
+            <input type="radio" name="extranjeros_visa_temp" id="extranjeros_visa_temp_si">
+            <label for="extranjeros_visa_temp_si">Si  </label>
+            <input type="radio" name="extranjeros_visa_temp" id="extranjeros_visa_temp_no">
+            <label for="extranjeros_visa_temp_no">No  </label>
+        </div>
+
+        <div class="form-group">
+            <p>Personas con Antecedentes Penales</p>
+            <input type="radio" name="personas_ant_penales" id="personas_ant_penales_si">
+            <label for="personas_ant_penales_si">Si  </label>
+            <input type="radio" name="personas_ant_penales" id="personas_ant_penales_no">
+            <label for="personas_ant_penales_no">No  </label>
+        </div>        
+
+        <div class="form-group">
+            <p>Personas con Capacidades Diferentes</p>
+            <input type="radio" name="personas_cap_dif" id="personas_cap_dif_si">
+            <label for="personas_cap_dif_si">Si  </label>
+            <input type="radio" name="personas_cap_dif" id="personas_cap_dif_no">
+            <label for="personas_cap_dif_no">No  </label>
+        </div>
+        
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Submit">
+  </form>
+{% endblock %}
