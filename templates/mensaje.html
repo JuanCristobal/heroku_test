@@ -1,7 +1,45 @@
 {% with messages = get_flashed_messages(with_categories=true) %}
   {% if messages %}
     {% for category, message in messages %}
-      <li class="alert  alert-{{ category }}">{{ message }}</li>
+
+      <style>
+        .alert{
+          position: absolute;
+          top: 25%;
+          margin-left: 45%;
+          width: fit-content;
+          height: 25%;
+          padding-top: 5%;
+        }
+        p{
+          align-self: center;
+        }
+      </style>
+
+      <div id="alerta" class="alert alert-{{ category }}"><p> {{message}}</p></div>  
+
+      <script type="text/javascript">
+
+
+        // close the div in 5 secs
+        window.setTimeout("closeDiv();", 5000);
+
+
+        function closeDiv()
+        {
+            var Temp = document.getElementById("alerta")
+            if (Temp != null)
+                Temp.style.display = "none";
+
+
+            // jQuery version
+            $("#paperuploaded2").fadeOut("slow", null);
+        }
+
+
+      </script>
+
+
     {% endfor %}
   {% endif %}
 {% endwith %}

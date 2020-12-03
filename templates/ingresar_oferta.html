@@ -14,7 +14,7 @@
   }
 </style>
 
-<h1 margin=20px>Ingresar nueva oferta laboral</h1>
+<h1 style="margin: 20px;">Ingresar nueva oferta laboral</h1>
   {% from "_formhelpers.html" import render_field %}
   <form action="" method="POST">
 
@@ -44,14 +44,6 @@
 
             <div class="form-group">
                 {{render_field(form.telefono_1, class_="form-control")}}
-            </div>
-
-            <div class="form-group">
-                {{render_field(form.telefono_2, class_="form-control")}}
-            </div>
-
-            <div class="form-group">
-                {{render_field(form.telefono_3, class_="form-control")}}
             </div>
 
             <div class="form-group">
@@ -113,10 +105,10 @@
                 {{render_field(form.lugar_entrevista, class_="form-control")}}
             </div>
 
-            <div class="form-group">
+            <!--<div class="form-group">
                 {{render_field(form.info_entrevista, class_="form-control")}}
             </div>
-
+            -->
     </div>
 
     <div class="form-group">                                        <!--Documentos solicitados para entrevista-->
@@ -206,30 +198,30 @@
         
         <div class="form-group">
             <p>Extranjeros con Visa Temporaria</p>
-            <input type="radio" name="extranjeros_visa_temp" id="extranjeros_visa_temp_si">
+            <input type="radio" name="extranjeros_visa_temp" id="extranjeros_visa_temp_si" value="Si">
             <label for="extranjeros_visa_temp_si">Si  </label>
-            <input type="radio" name="extranjeros_visa_temp" id="extranjeros_visa_temp_no">
+            <input type="radio" name="extranjeros_visa_temp" id="extranjeros_visa_temp_no" value="No">
             <label for="extranjeros_visa_temp_no">No  </label>
         </div>
 
         <div class="form-group">
             <p>Personas con Antecedentes Penales</p>
-            <input type="radio" name="personas_ant_penales" id="personas_ant_penales_si">
+            <input type="radio" name="personas_ant_penales" id="personas_ant_penales_si" value="Si">
             <label for="personas_ant_penales_si">Si  </label>
-            <input type="radio" name="personas_ant_penales" id="personas_ant_penales_no">
+            <input type="radio" name="personas_ant_penales" id="personas_ant_penales_no" value="No">
             <label for="personas_ant_penales_no">No  </label>
         </div>        
 
         <div class="form-group">
             <p>Personas con Capacidades Diferentes</p>
-            <input type="radio" name="personas_cap_dif" id="personas_cap_dif_si">
+            <input type="radio" name="personas_cap_dif" id="personas_cap_dif_si" value="Si">
             <label for="personas_cap_dif_si">Si  </label>
-            <input type="radio" name="personas_cap_dif" id="personas_cap_dif_no">
+            <input type="radio" name="personas_cap_dif" id="personas_cap_dif_no" value="No">
             <label for="personas_cap_dif_no">No  </label>
         </div>
         
     </div>
 
-    <input type="submit" class="btn btn-primary" value="Submit">
+    <input type="submit" class="btn btn-primary" value="Submit" style="margin: 20px;">
   </form>
 {% endblock %}

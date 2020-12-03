@@ -1,6 +1,20 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+
+<style>
+  .form-group{
+    background-color:rgb(223, 223, 222);
+    border-radius: 25px;
+    color: black;
+    border: 1px solid rgb(189, 189, 189);
+    margin: 20px;
+    padding: 7px;
+    overflow: auto;
+
+  }
+</style>
+  <div class="form-group">
   <h1>Anexos</h1>
   {% from "_formhelpers.html" import render_field %}
   <form action="" method="POST">
@@ -9,4 +23,5 @@
       </div>
       <p><input type="submit" class="btn btn-primary" value="Submit"></p>
   </form>
+</div>
 {% endblock %}

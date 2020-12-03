@@ -10,250 +10,487 @@
     color: black;
     border: 1px solid rgb(189, 189, 189);
     margin: 20px;
-    padding: 7px;
+    padding: 15px;
     overflow: auto;
-
   }
   .form-control{
     border-radius: 5px;
     border: 1px solid grey;
+    width:65%;
   }
   .btn-primary{
     border-radius: 5px;
     border: 1px solid grey;
     padding: 5px;
-    margin: 20px;
+    margin: 40px;
   }
-  .form-sss{
-    background-color:rgb(223, 223, 222);
-    border-radius: 25px;
-    color: black;
-    border: 1px solid grey;
-    margin: 0px;
-    padding: 7px;
-    overflow: auto;
-    justify-content: space-between;
-	  display: flex;
+  .plataformas{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: auto;
+    width: 100%;
+  }
+  ::placeholder {
+    color:#adadad;
   }
 </style>
 
 
-  <h1>Registro de Usuario Nuevo</h1>
+  <h1 style="margin: 20px;">Registro de Usuario Nuevo</h1>
   {% from "_formhelpers.html" import render_field %}
-  <form method="POST" action="">
-    <div class="form-group">                                        <!-- Antecedentes Generales-->
-    
-    <h2>Antecedentes Generales</h2>                               
-    
-    <div class="form-group">                                      <!-- Nombre -->
-      {{render_field(form.nombre, class_="form-control")}}          
-    </div> 
-
-    <div class="form-group">                                      <!-- RUT -->
-      {{render_field(form.rut, class_="form-control")}}             
-    </div>
-
-    <div class="form-group">                                      <!-- Fecha Aplicacion-->
-      <label for="fecha_aplicacion">Fecha de Aplicación:</label>    
-      <input type="date"  name="fecha_aplicacion">
-    </div>
-
-    <div class="form-group">                                      <!-- Fecha Nacimiento-->
-      <label for="fecha_nacimiento">Fecha de Nacimiento:</label>    
-      <input type="date"  name="fecha_nacimiento">
-    </div>
-
-    <div class="form-group">                                      <!--Nacionalidad-->
-      {{render_field(form.nacionalidad, class_="form-control")}}    
-    </div>
-
-    <div class="form-group">                                      <!--Telefono de notificaciones-->
-      {{render_field(form.tel_not, class_="form-control")}}         
-    </div>    
-
-    <div class="form-group">                                      <!--Telefono alternativo-->
-      {{render_field(form.tel_alt, class_="form-control")}}         
-    </div>
-
-    <div class="form-group">                                      <!--Email-->
-      {{render_field(form.email, class_="form-control")}}           
-    </div>
-
-    <div class="form-group">                                      <!--Profesión-->
-      {{render_field(form.profesion, class_="form-control")}}
-    </div>
-
-    <div class="form-group">                                      <!--Trabajos previos-->
-      {{render_field(form.trabajos_previos, class_="form-control")}}
-    </div>        
-
-    <div class="form-group">                                      <!--Direccion-->
-      {{render_field(form.direccion, class_="form-control")}}
-    </div>
-
-    <div class="form-group">                                      <!--Comuna-->
-      {{render_field(form.comuna, class_="form-control")}}
-    </div>
-
-    <div class="form-group">                                      <!--Discapacidad-->
-      <p>Discapacidad</p>                                         
-      <input type="radio" name="discapacidad" value="Si" id="discapacidad_si">
-      <label for="discapacidad_si">Si  </label>
-      <input type="radio" name="discapacidad" value="No" id="discapacidad_no">
-      <label for="discapacidad_no">No  </label>
-    </div>    
-
-    <div class="form-group">                                      <!--Nivel de Estudios-->
-      <p>Nivel de Estudios</p>                                      
-      <input type="radio" name="nivel_estudios" value="Básica Incompleta" id="nivel_estudios_basica_incompleta">
-      <label for="nivel_estudios_basica_incompleta">Básica Incompleta  </label>
-
-      <input type="radio" name="nivel_estudios" value="Básica Completa" id="nivel_estudios_basica_completa">
-      <label for="nivel_estudios_basica_completa">Básica Completa  </label>
-      <br>
-      <input type="radio" name="nivel_estudios" value="Media Incompleta" id="nivel_estudios_media_incompleta">
-      <label for="nivel_estudios_media_incompleta">Media Incompleta  </label>
-
-      <input type="radio" name="nivel_estudios" value="Media Completa" id="nivel_estudios_media_completa">
-      <label for="nivel_estudios_media_completa">Media Completa  </label> 
-      <br>
-      <input type="radio" name="nivel_estudios" value="Técnica Incompleta" id="nivel_estudios_tecnica_incompleta">
-      <label for="nivel_estudios_tecnica_incompleta">Técnica Incompleta  </label>
-
-      <input type="radio" name="nivel_estudios" value="Técnica Completa" id="nivel_estudios_tecnica_completa">
-      <label for="nivel_estudios_tecnica_completa">Técnica Completa  </label>
-      <br>
-      <input type="radio" name="nivel_estudios" value="Superior Incompleta" id="nivel_estudios_superior_incompleta">
-      <label for="nivel_estudios_superior_incompleta">Superior Incompleta  </label>
-
-      <input type="radio" name="nivel_estudios" value="Superior completa" id="nivel_estudios_superior_completa">
-      <label for="nivel_estudios_superior_completa">Superior Completa  </label>
+  <form method="POST" action="" enctype="multipart/form-data"> 
+    <div class="form-group">                                            <!-- Antecedentes Generales-->
       
-    </div>        
+      <h2>Antecedentes Generales</h2>                               
+      
+      <div class="form-group">                                      <!-- Nombre -->
+        {{render_field(form.nombre, class_="form-control")}}          
+      </div> 
 
-    <div class="form-group">                                      <!--Preferencias-->
-      {{render_field(form.preferencias, class_="form-control")}}
-    </div>
+      <div class="form-group">                                      <!-- RUT -->
+        <label for="rut">Rut</label>
+        <input class="form-control" type="text" name="rut" id="rut" placeholder="9000999-0">             
+      </div>
 
-    <div class="form-group">                                      <!--Experiencia-->
-      <p>Experiencia</p>                                            
-      <input type="checkbox" id="obrero" name="experiencia" value="Obrero">
-      <label for="obrero">Obrero  </label>  
+      <div class="form-group">                                      <!-- Fecha Aplicacion-->
+        <label for="fecha_aplicacion">Fecha de Aplicación:</label>    
+        <input type="date"  name="fecha_aplicacion">
+      </div>
 
-      <input type="checkbox" id="cajero_bancario" name="experiencia" value="Cajero Bancario">
-      <label for="cajero_bancario">Cajero Bancario  </label>  
+      <div class="form-group">                                      <!-- Fecha Nacimiento-->
+        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>    
+        <input type="date"  name="fecha_nacimiento">
+      </div>
 
-      <input type="checkbox" id="guardia_seguridad" name="experiencia" value="Guardia de Seguridad">
-      <label for="guardia_seguridad">Guardia de Seguridad  </label>  
+      <div class="form-group">                                      <!--Nacionalidad-->
+        <label for="nacionalidad">Seleccione una nacionalidad:</label>
+        <select name="nacionalidad" id="nacionalidad" required>
+          <option style="text-decoration:darkgray;" value="">Escoga una opción</option>
+            
+          <option value="No Informa">No Informa</option>
+          <option value="Chilena">Chilena</option> 
+          <option value="Argentina">Argentina</option> 
+          <option value="Peruana">Peruana</option> 
+          <option value="Boliviana">Boliviana</option> 
+          <option value="Haitiana">Haitiana</option> 
+          <option value="Venezolana">Venezolana</option> 
+          <option value="Colombiana">Colombiana</option> 
+          <option value="Ecuatoriana">Ecuatoriana</option> 
+          <option value="Costarricense">Española</option> 
+          <option value="Brasileña">Brasileña</option>
+          <option value="Salvadoreña">Salvadoreña</option> 
+          <option value="Mexicana">Mexicana</option> 
+          <option value="Paraguaya">Paraguaya</option>
+          <option value="Uruguaya">Uruguaya</option> 
+          <option value="Cubana">Cubana</option> 
+          <option value="Hondureña">Hondureña</option>
+          <option value="Panameña">Panameña</option> 
+          <option value="Guatemalteca">Guatemalteca</option> 
+          <option value="Dominicana">Dominicana</option>
+          <option value="Nicaraguense">Nicaraguense</option> 
+        </select>   
+      </div>
 
-      <input type="checkbox" id="reponedor" name="experiencia" value="Reponedor">
-      <label for="reponedor">Reponedor  </label>  
-    </div>
-    
+      <div class="form-group">                                      <!--Telefono de notificaciones-->
+        <label for="tel_not">Teléfono de Notificaciones</label>
+        <input class="form-control" type="text" name="tel_not" id="tel_not" placeholder="9 87654321">          
+      </div>    
+
+      <div class="form-group">                                      <!--Telefono alternativo-->
+        <label for="tel_alt">Teléfono alternativo</label>
+        <input class="form-control" type="text" name="tel_alt" id="tel_alt" placeholder="9 87654321 o 22 1234567">            
+      </div>
+
+      <div class="form-group">                                      <!--Email-->
+        <label for="email">Email</label>
+        <input class="form-control" type="text" name="email" id="email" placeholder="correo@mail.com/cl/etc.">   
+      </div>      
+
+      <div class="form-group">                                      <!--Direccion-->
+        <label for="direccion">Dirección</label>
+        <input class="form-control" type="text" name="direccion" id="direccion" placeholder="Ejemplo n°1234, depto n°A1"> 
+      </div>
+
+      <div class="form-group">                                      <!--Comuna-->
+        <label for="comuna">Seleccione una comuna:</label>
+        <select name="comuna" id="comuna" required>
+          <option style="text-decoration:darkgray;" value="">Escoga una opción</option>  
+
+          <option value="La Cisterna">La Cisterna</option> 
+          <option value="El Bosque">El Bosque</option> 
+          <option value="San Miguel">San Miguel</option> 
+          <option value="San Joaquín">San Joaquín</option> 
+          <option value="La Granja">La Granja</option> 
+          <option value="La Pintana">La Pintana</option>
+          <option value="San Ramón">San Ramón</option>
+          <option value="La Pintana">La Pintana</option>
+          <option value="Lo Espejo">Lo Espejo</option>
+          <option value="Pedro Aguirre Cerda">Pedro Aguirre Cerda</option> 
+          <option value="Cerrillos">Cerrillos</option> 
+          <option value="Estación Central">Estación Central</option> 
+          <option value="Maipú">Maipú</option> 
+          <option value="Cerro Navia">Cerro Navia</option> 
+          <option value="Lo Prado">Lo Prado</option> 
+          <option value="Pudahuel">Pudahuel</option> 
+          <option value="Quinta Normal">Quinta Normal</option> 
+          <option value="Independencia">Independencia</option> 
+          <option value="Quilicura">Quilicura</option> 
+          <option value="Recoleta">Recoleta</option> 
+          <option value="Renca">Renca</option> 
+          <option value="Huechuraba">Huechuraba</option>
+          <option value="Las Condes">Las Condes</option> 
+          <option value="Lo Barnechea">Lo Barnechea</option> 
+          <option value="Providencia">Providencia</option> 
+          <option value="Vitacura">Vitacura</option> 
+          <option value="La Reina">La Reina</option> 
+          <option value="Macul">Macul</option> 
+          <option value="Ñuñoa">Ñuñoa</option> 
+          <option value="Peñalolén">Peñalolén</option> 
+          <option value="La Florida">La Florida</option> 
+          <option value="Santiago">Santiago</option> 
+          <option value="Conchalí">Conchalí</option> 
+        </select>
+      </div>
+
+      <div class="form-group">                                      <!--Discapacidad-->
+        <p>Discapacidad</p>                                         
+        <input type="radio" name="discapacidad" value="Si" id="discapacidad_si">
+        <label for="discapacidad_si">Si  </label>
+        <input type="radio" name="discapacidad" value="No" id="discapacidad_no">
+        <label for="discapacidad_no">No  </label>
+      </div>        
+
+      <div class="form-group">                                      <!--Area de interes-->
+        <p>Áreas de Interés</p>
+        <input type="checkbox" id="administrativa" name="area-interes" value="Administrativa">
+        <label for="administrativa">Administrativa  </label>  
+
+        <input type="checkbox" id="Profesional" name="area-interes" value="Profesional">
+        <label for="Profesional">Profesional  </label>  
+
+        <input type="checkbox" id="Construcción" name="area-interes" value="Construcción">
+        <label for="Construcción">Construcción</label>  
+
+        <input type="checkbox" id="Seguridad" name="area-interes" value="Seguridad">
+        <label for="Seguridad">Seguridad  </label> 
+
+        <input type="checkbox" id="area-productiva" name="area-interes" value="Área Productiva">
+        <label for="area-productiva">Área Productiva  </label> 
+      </div>
     </div>                                         
 
-    <div class="form-group">                                        <!-- Información Laboral-->
+    <div class="form-group">                                            <!--Información Educacional-->
+      <h2>Información Educacional</h2>
+        <div class="form-group">                                        <!--Nivel Educacional-->
+          <p>Nivel Educacional</p>                                      
+          <input type="radio" name="nivel_estudios" value="Básica Incompleta" id="nivel_estudios_basica_incompleta">
+          <label for="nivel_estudios_basica_incompleta">Básica Incompleta  </label>
+    
+          <input type="radio" name="nivel_estudios" value="Básica Completa" id="nivel_estudios_basica_completa">
+          <label for="nivel_estudios_basica_completa">Básica Completa  </label>
+          <br>
+          <input type="radio" name="nivel_estudios" value="Media Incompleta" id="nivel_estudios_media_incompleta">
+          <label for="nivel_estudios_media_incompleta">Media Incompleta  </label>
+    
+          <input type="radio" name="nivel_estudios" value="Media Completa" id="nivel_estudios_media_completa">
+          <label for="nivel_estudios_media_completa">Media Completa  </label> 
+          <br>
+          <input type="radio" name="nivel_estudios" value="Técnica Incompleta" id="nivel_estudios_tecnica_incompleta">
+          <label for="nivel_estudios_tecnica_incompleta">Técnica Incompleta  </label>
+    
+          <input type="radio" name="nivel_estudios" value="Técnica Completa" id="nivel_estudios_tecnica_completa">
+          <label for="nivel_estudios_tecnica_completa">Técnica Completa  </label>
+          <br>
+          <input type="radio" name="nivel_estudios" value="Superior Incompleta" id="nivel_estudios_superior_incompleta">
+          <label for="nivel_estudios_superior_incompleta">Superior Incompleta  </label>
+    
+          <input type="radio" name="nivel_estudios" value="Superior completa" id="nivel_estudios_superior_completa">
+          <label for="nivel_estudios_superior_completa">Superior Completa  </label>
+          
+        </div>   
+        <div class="form-group">
+          <details>                                                     <!--Técnico profesional-->
+          <summary>Técnico Profesional <small>(si corresponde)</small></summary> 
+            <div class="form-group">                                      
+              <p>Técnico Profesional</p>                               
+              <input type="radio" name="tecnico-profesional" value="Si" id="tecnico-profesional-si">
+              <label for="tecnico-profesional-si"> Si  </label>
+              <input type="radio" name="tecnico-profesional" value="No" id="tecnico-profesional-no">
+              <label for="tecnico-profesional-no"> No  </label>         
+            </div>
+
+            <div class="form-group">                                  <!--Sector Técnico Profesional-->
+                <p>Si es Técnico Profesional, ¿en qué sector?</p>         
+                <p style="font-size: 12px">(Si no lo es no responder) </p>
+                  <select name="sector-tc" id="sector-tc">
+                    <option value="No">Escoga una opción</option>
+                    <option value="Administración">Administración</option>
+                    <option value="Agropecuario ">Agropecuario </option>
+                    <option value="Alimentación">Alimentación</option>
+                    <option value="Confección">Confección</option>
+                    <option value="Construcción">Construcción</option>
+                    <option value="Electricidad">Electricidad</option>
+                    <option value="Gráfico">Gráfico</option>
+                    <option value="Hotelería y Turismo">Hotelería y Turismo</option>
+                    <option value="Maderero">Maderero</option>
+                    <option value="Marítimo">Marítimo</option>
+                    <option value="Metalmecánica">Metalmecánica/option>
+                    <option value="Minero">Minero</option>
+                    <option value="Química e Industria">Química e Industria</option>
+                    <option value="Salud y Educación">Salud y Educación</option>
+                    <option value="Tecnología y Telecomunicaciones">Tecnología y Telecomunicaciones</option>
+                  </select>
+            </div>
+          </details>  
+        </div>
+        
+        <div class="form-group">                                        <!--Certificados-->
+          <details>                                                     
+            <summary>Certificados <small>(si corresponde)</small></summary>
+            <div class="form-group">                                          <!--¿Posee Certificados?-->
+              <p>¿Tiene algún tipo de certificado(s)?</p>
+              <input type="radio" name="certificado" value="Si" id="certificado-si">
+              <label for="certificado-si"> Si  </label>
+              <input type="radio" name="certificado" value="No" id="certificado-no">
+              <label for="certificado-no"> No  </label>
+            </div>
+
+                  <div class="form-group">                                    <!--Número Certificados-->
+                    <p>Indique la cantidad de certificados que posee</p>
+                    <select name="numero-certificados" id="numero-certificados" aria-placeholder="Seleccione un número">
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5 o más">5 o más</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">                                    <!--Lugar certificado-->
+                    <p>¿Dónde los realizó?</p>    
+                    <input type="radio" name="certificado-donde" value="SENCE" id="certificado-donde-sence">
+                    <label for="certificado-donde-sence"> SENCE  </label>
+                    <input type="radio" name="certificado-donde" value="Carabineros" id="certificado-donde-carabineros">
+                    <label for="certificado-donde-carabineros"> Carabineros  </label>
+                    <input type="radio" name="certificado-donde" value="Otro" onclick="createNewElement(1);">
+                    <label for="certificado-donde-otro">Otro</label>
+                    <div id="newElementId1">
+                    </div>
+                    </div>            
+
+                  <div class="form-group">                                     <!--Duración certificación-->
+                    <p>Duración de certificación</p>
+                    <select name="duracion-certificados" id="duracion-certificados" aria-placeholder="Seleccione un número">
+                      <option value="No">Escoga una opción</option>
+                      <option value="1 año">1 año</option>
+                      <option value="2 años">2 años</option>
+                      <option value="3 años">3 años</option>
+                      <option value="4 años">4 años</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">                                    <!--Duración certificacion en horas-->
+                    <p>¿Cuánto duró el curso de certificación? <small>(en horas)</small></p>             
+                      <input type="number" name="duracion-certificacion" id="duracion-certificacion">
+                  </div>
+<!--
+                  <div class="form-group">                                    Adjuntar Diploma
+                    <p>Adjunte Diploma(s)</p>                                     
+                    <label for="diploma-certificado">Seleccione archivo(s):</label>
+                    <input type="file" name="diploma-certificado" id="diploma-certificado" >
+                    
+                    {{render_field(form.diplomas_certificados_form, class_="form-control")}}
+
+                  </div>
+                -->
+          </details>
+        </div>
+
+        <div class="form-group">                                        <!--Licencias Especiales-->
+          <details>                                                             
+            <summary>Licencias Especiales <small>(si corresponde)</small></summary>
+              <div class="form-group">                                          <!--¿Posee Licencias Especiales?-->
+                <p>¿Tiene algún tipo de licencia especial?</p>
+                <input type="radio" name="licencia-especial" value="Si" id="licencia-especial-si">
+                <label for="licencia-especial-si"> Si  </label>
+                <input type="radio" name="licencia-especial" value="No" id="licencia-especial-no">
+                <label for="licencia-especial-no"> No  </label>
+              </div>  
+              
+              <div class="form-group">                                     <!--tipo de licencia-->
+                {{render_field(form.tipo_licencia_especial, class_="form-control")}} 
+              </div>            
+
+              <div class="form-group">                                    <!--Lugar licencia especial-->
+                <p>¿Dónde la obtuvo?</p>    
+                <input type="radio" name="licencia-especial-donde" value="SENCE" id="licencia-especial-sence">
+                <label for="licencia-especial-sence"> SENCE  </label>
+                <input type="radio" name="licencia-especial-donde" value="Carabineros" id="licencia-especial-carabineros">
+                <label for="licencia-especial-carabineros"> Carabineros  </label>
+                <input name="licencia-especial-donde" onclick="createNewElement(2);" type="radio" value="Otro" id="licencia-especial-otro">
+                <label for="licencia-especial-otro">Otro  </label>
+                <div id="newElementId2">
+                </div>
+              </div>
+
+
+              <div class="form-group">                                     <!--Duración licencia-->
+                <p>Duración de la licencia </p>
+                <select name="duracion-licencia-especial" id="duracion-licencia-especial" aria-placeholder="Seleccione una opción">
+                      <option value="No">Escoga una opción</option>
+                      <option value="1 año">1 año</option>
+                      <option value="2 años">2 años</option>
+                      <option value="3 años">3 años</option>
+                      <option value="4 años">4 años</option>
+                      <option value="5 años">5 años</option>
+                      <option value="6 años">6 años</option>
+                      <option value="7 años">7 años</option>
+                      <option value="8 años">8 años</option>
+                      <option value="9 años">9 años</option>
+                      <option value="10 años">10 años</option>
+                </select>
+              </div>
+<!--
+              <div class="form-group">                                    Adjuntar Diploma
+                <p>Adjunte Licencia(s)</p>                                     
+                  <label for="diploma-licencia">Seleccione archivo(s):</label>
+                  <input type="file" name="diploma-licencia" id="diploma-licencia">
+                  
+                  {{render_field(form.licencias_especiales_form, class_="form-control")}}
+                </div>
+                -->
+          </details>
+        </div>
+    </div>
+
+    <div class="form-group">                                            <!-- Información Laboral-->
+      
       <h2>Información Laboral</h2>
-      <p style="font-size: 16px">La información que se utiliza para respaldar la atención inicial está disponible en:</p>
-      <p style="font-size: 12px">(Puede marcar más de una opción)</p>
+      <div class="form-group">                                      <!--Profesión-->
+        {{render_field(form.profesion, class_="form-control")}}
+      </div>
+  
+      <div class="form-group">                                      <!--Trabajos previos-->
+        {{render_field(form.trabajos_previos, class_="form-control")}}
+      </div>        
+  
+      <div class="form-group">                                      <!--Experiencia-->
+        <label for="experiencia">Experiencia</label>
+        <input class="form-control" type="text" name="experiencia" id="experiencia" placeholder="X años y Y meses">         
+      </div>  
 
-      <p>BNE</p>                                                    <!--BNE-->
-        <input type="radio" name="bne" value="Si" id="bne_si">
-        <label for="bne_si">Si  </label>
-        <input type="radio" name="bne" value="No" id="bne_no">
-        <label for="bne_no">No  </label>   
-
-        <p>Plataforma Municipal</p>
+      <div class="form-group">
+      
+        <p style="font-size: 16px">La información que se utiliza para respaldar la atención inicial está disponible en:</p>
+        <p style="font-size: 12px">(Puede marcar más de una opción)</p>
+        
         <div>
-        <input type="radio" name="plat_municipal" value="Si" id="plat_municipal_si">
-        <label for="plat_municipal_si">Si  </label>
-
-        <input type="radio" name="plat_municipal" value="No" id="plat_municipal_no">
-        <label for="plat_municipal_no">No  </label>
-        </div> 
-        {{render_field(form.otro, class_="form-control")}}          <!--Otro-->
-
+          <p>BNE</p>                                                    <!--BNE-->
+            <input type="radio" name="bne" value="Si" id="bne_si">
+            <label for="bne_si">Si  </label>
+            <input type="radio" name="bne" value="No" id="bne_no">
+            <label for="bne_no">No  </label>   
+        </div>
+        <div>
+          <p>Plataforma Municipal</p>                                   <!--Plataforma Municipal-->
+            <input type="radio" name="plat_municipal" value="Si" id="plat_municipal_si">
+            <label for="plat_municipal_si">Si  </label>
+            <input type="radio" name="plat_municipal" value="No" id="plat_municipal_no">
+            <label for="plat_municipal_no">No  </label> <br>
+            {{render_field(form.otro, class_="form-control")}}          <!--Otro-->
+        </div>
+      </div>
     </div>    
 
-    <div class="form-group">                                        <!-- Derivación -->
+    <div class="form-group">                                            <!-- Derivación -->
 
-    <h2>Derivación</h2>
-    <p style="font-size: 16px">(Para derivaciones extra OMIL recuerde completar la ficha de derivación)</p>
-
-    <div class="form-group">
-      <p>Derivado a Profesional Orientador Laboral</p>                      <!--Derivado a orientador de profesion-->
+    <h2>Derivación <small style="font-size: small;"><b>(Para derivaciones extra OMIL recuerde completar la ficha de derivación)</b></small></p></h2>
+    <p style="font-size: 12px; margin:20px">Si no se responden, por defecto se escogerá la opción 'No'.</p>
+    
+    <div class="form-group">                                        <!--Derivado a orientador de profesion-->
+      <p>Derivado a Profesional Orientador Laboral</p>                      
       <input type="radio" name="der_orientador" value="si" id="der_orientador_si">
       <label for="der_orientador_si">Si  </label>
       <input type="radio" name="der_orientador" value="no" id="der_orientador_no">
       <label for="der_orientador_no">No  </label>
     </div>    
 
-    <div class="form-group">                        
-      <p>Nivelación de Estudios</p>                                 <!--Nivelacion de Estudios-->
+    <div class="form-group">                                        <!--Nivelacion de Estudios-->
+      <p>Nivelación de Estudios</p>                                 
       <input type="radio" name="nivelacion_estudio" value="si" id="nivelacion_estudio_si">
       <label for="nivelacion_estudio_si">Si  </label>
       <input type="radio" name="nivelacion_estudio" value="no" id="nivelacion_estudio_no">
       <label for="nivelacion_estudio_no">No  </label>
     </div>  
 
-    <div class="form-group">
-      <p>Curso de Capacitación</p>                                  <!-- Curso de Capacitacion-->
+    <div class="form-group">                                        <!-- Curso de Capacitacion-->
+      <p>Curso de Capacitación</p>                                  
       <input type="radio" name="curso_cap" value="si" id="curso_cap_si">
       <label for="curso_cap_si">Si  </label>
       <input type="radio" name="curso_cap" value="no" id="curso_cap_no">
       <label for="curso_cap_no">No  </label>
     </div>  
 
-    <div class="form-group">
-      <p>Derivación a Entrevista Laboral (Empresa)</p>                                   <!-- Derivacion a Empresa-->
+    <div class="form-group">                                        <!-- Derivacion a Empresa-->
+      <p>Derivación a Entrevista Laboral (Empresa)</p>                                   
       <input type="radio" name="derivacion_empresa" value="si" id="derivacion_empresa_si">
       <label for="derivacion_empresa_si">Si  </label>
       <input type="radio" name="derivacion_empresa" value="no" id="derivacion_empresa_no">
       <label for="derivacion_empresa_no">No  </label>
     </div>
 
-    <div class="form-group">
-      <p>Evaluación y Certificación de Competencia Laboral</p>      <!--Evaluación y Certificación de Competencia Laboral-->
+    <div class="form-group">                                        <!--Evaluación y Certificación de Competencia Laboral-->
+      <p>Evaluación y Certificación de Competencia Laboral</p>      
       <input type="radio" name="evycertif_comp" value="si" id="evycertif_comp_si">
       <label for="evycertif_comp_si">Si  </label>
       <input type="radio" name="evycertif_comp" value="no" id="evycertif_comp_no">
       <label for="evycertif_comp_no">No  </label>
     </div>
 
-    <div class="form-group">
-      <p>Apoyo Social Extra OMIL</p>                                <!--Apoyo Social extra omil-->
+    <div class="form-group">                                        <!--Apoyo Social extra omil-->
+      <p>Apoyo Social Extra OMIL</p>                               
       <input type="radio" name="apoyosocialxtra" value="si" id="apoyosocialextra_si">
       <label for="apoyosocialextra_si">Si  </label>
       <input type="radio" name="apoyosocialxtra" value="no" id="apoyosocialextra_no">
       <label for="apoyosocialextra_no">No  </label>
     </div>
 
-    <div class="form-group">
-      <p>Emprendimiento</p>                                         <!--Emprendimiento-->
+    <div class="form-group">                                        <!--Emprendimiento-->
+      <p>Emprendimiento</p>                                        
       <input type="radio" name="emprendimiento" value="si" id="emprendimiento_si">
       <label for="emprendimiento_si">Si  </label>
       <input type="radio" name="emprendimiento" value="no" id="emprendimiento_no">
       <label for="emprendimiento_no">No  </label>
     </div>
     
-    <div class="form-group">
-      <p>Derivado a Colocación Laboral</p>                          <!--Derivado a Colocacion Laboral-->
+    <div class="form-group">                                        <!--Subsidios-->
+      <p>Subsidios (SEJ - BTM)</p>                                        
+      <input type="radio" name="subsidios" value="si" id="subsidios_si">
+      <label for="subsidios_si">Si  </label>
+      <input type="radio" name="subsidios" value="no" id="subsidios_no">
+      <label for="subsidios_no">No  </label>
+    </div>
+    
+    <div class="form-group">                                       <!--Derivado a Colocacion Laboral-->
+      <p>Derivado a Colocación Laboral</p>                          
       <input type="radio" name="der_coloc" value="si" id="der_coloc_si">
       <label for="der_coloc_si">Si  </label>
       <input type="radio" name="der_coloc" value="no" id="der_coloc_no">
       <label for="der_coloc_no">No  </label>
     </div>
 
-    <div class="form-group">
-      <p>Apoyo Socio-Laboral</p>                                    <!--Apoyo Socio-Laboral-->
+    <div class="form-group">                                       <!--Apoyo Socio-Laboral-->
+      <p>Apoyo Socio-Laboral</p>                                   
       <input type="radio" name="apoyo_soclab" value="si" id="apoyo_soclab_si">
       <label for="apoyo_soclab_si">Si  </label>
       <input type="radio" name="apoyo_soclab" value="no" id="apoyo_soclab_no">
       <label for="apoyo_soclab_no">No  </label>
     </div>
 
-    <div class="form-group">
-      <p>Seguro de Cesantía</p>                                     <!--Seguro de Cesantía-->
+    <div class="form-group">                                       <!--Seguro de Cesantía-->
+      <p>Seguro de Cesantía</p>                                     
       <input type="radio" name="seguro_cesantia" value="si" id="seguro_cesantia_si">
       <label for="seguro_cesantia_si">Si  </label>  
       <input type="radio" name="seguro_cesantia" value="no" id="seguro_cesantia_no">
@@ -263,6 +500,7 @@
     <div class="form-group">                                        <!-- Motivo de derivacion-->
       {{render_field(form.mot_derivacion, class_="form-control")}}
     </div>
+    
     <div class="form-group">                                        <!-- Sintesis de atención inicial-->
       {{render_field(form.sintat_inicial, class_="form-control")}}  
       <p style="font-size:12px">(El profesional que aplica esta ficha debe indicar sus observaciones, siempre que las hubiera, de la situación laboral del usuario según antecedentes recopilados durante la atención inicial)</p>
@@ -270,6 +508,58 @@
     
     </div>
     
-    <p><input type="submit" class="btn btn-primary" value="Registrar Usuario" id="boton"></p>
+    <p> 
+        <input type="submit" class="btn btn-primary" value="Registrar Usuario" id="boton">
+        <button class="btn btn-primary" onclick="topFunction();" type="reset">Limpiar Formulario</button>
+    </p>
+
   </form>
+
+  <script>
+    var k = 0; 
+    var q = 0; 
+    function createNewElement(j) {
+      var i = 0;
+        i = j;
+
+      if(i == 1){ 
+          if(k == 0){
+            // First create a DIV element.
+          var txtNewInputBox = document.createElement('div');
+
+            // Then add the content (a new input box) of the element.
+                txtNewInputBox.innerHTML = "<input type='text' class='form-group' name='certificado-donde' id='newInputBox'>";
+
+                // Finally put it where it is supposed to appear.
+              document.getElementById("newElementId1").appendChild(txtNewInputBox);
+                k ++;
+          }
+        }
+      if(i == 2){
+          if(q == 0){
+            // First create a DIV element.
+          var txtNewInputBox = document.createElement('div');
+
+            // Then add the content (a new input box) of the element.
+                txtNewInputBox.innerHTML = "<input type='text' class='form-group' name='licencia-especial-donde' id='newInputBox'>";
+
+                // Finally put it where it is supposed to appear.
+              document.getElementById("newElementId2").appendChild(txtNewInputBox);
+                q ++;
+          }
+        }    
+    }
+  
+    function alerta(){
+      alert("Usuario Registrado Correctamente")
+    }
+
+    function topFunction() {
+
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      window.location.reload();
+    }
+
+  </script>
 {% endblock %}

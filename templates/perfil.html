@@ -1,12 +1,203 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-  <h1>Buscar Perfil de Usuario</h1>
-  {% from "_formhelpers.html" import render_field %}
+<style>
+  .form-group{
+    background-color:rgb(223, 223, 222);
+    border-radius: 25px;
+    color: black;
+    border: 1px solid rgb(189, 189, 189);
+    margin: 20px;
+    padding: 15px;
+    overflow: auto;
+  }
+  
+  option:hover{
+    color: black;
+  }
+  option{
+    color: rgb(112, 112, 112);
+  }
+  p{
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .texto{
+    width: 35%;
+  }
+
+</style>
+
+<div class="form-group">
+
   <form action="" method="POST">
+    <h1>Búsqueda de Usuarios</h1>
     <div class="form-group">
-        {{render_field(form.rut, class_="form-control")}}
+        <h2>Buscar Perfil de Usuario <small>por RUT</small></h2>
+        <input class="texto" type="text" name="rut_busqueda" id="rut_busqueda" placeholder="9000999-0"> <br>
+        <input type="submit" name="button" class="btn btn-primary" value="Buscar Usuario" style="margin-top: 10px; margin-bottom: 10px;">
     </div>
-    <input type="submit" class="btn btn-primary" value="Submit">
-  </form>
+
+    <div class="form-group">
+      <h2>Buscar Usuarios <small>por característica</small></h2>
+      <div>
+        <p>¿Qué característica busca?</p>
+        <select name="busqueda" id="buscador_caracteristica">
+          <option value="placeholder">Escoga una opción</option>
+          <option value="profesion">Profesión</option>
+          <option value="nacionalidad">Nacionalidad</option>
+          <option value="area_interes">Área Interés</option>
+          <option value="nivel_estudios">Nivel de Estudios</option>
+          <option value="comuna">Comuna</option>
+          <option value="tecnico_profesional">Técnico Profesional</option>
+          <option value="discapacidad">Discapacidad</option>
+        </select>
+      </div>
+      <div>
+
+        <div id="placeholder" class="opcion" style="display:none">
+          Escoga un parámetro de búsqueda para ver las opciones
+        </div>
+
+        <div id="profesion" class="opcion" style="display:none">                  <!--Profesión-->
+          <label for="caracteristica_profesion">Ingrese palabra clave: </label>
+          <input type="text" name="caracteristica_profesion" id="caracteristica_profesion">
+        </div>
+        <div id="nacionalidad" class="opcion" style="display:none">               <!--Nacionalidad-->
+          <p>Nacionalidad</p>
+          <select name="caracteristica_nacionalidad" id="caracteristica_nacionalidad">
+            <option style="text-decoration: darkgray;" value="Seleccione una opción">Seleccione una opción</option>
+            <option value="No Informa">No Informa</option>
+            <option value="Chilena">Chilena</option> 
+            <option value="Argentina">Argentina</option> 
+            <option value="Peruana">Peruana</option> 
+            <option value="Boliviana">Boliviana</option> 
+            <option value="Haitiana">Haitiana</option> 
+            <option value="Venezolana">Venezolana</option> 
+            <option value="Colombiana">Colombiana</option> 
+            <option value="Ecuatoriana">Ecuatoriana</option> 
+            <option value="Costarricense">Española</option> 
+            <option value="Brasileña">Brasileña</option>
+            <option value="Salvadoreña">Salvadoreña</option> 
+            <option value="Mexicana">Mexicana</option> 
+            <option value="Paraguaya">Paraguaya</option>
+            <option value="Uruguaya">Uruguaya</option> 
+            <option value="Cubana">Cubana</option> 
+            <option value="Hondureña">Hondureña</option>
+            <option value="Panameña">Panameña</option> 
+            <option value="Guatemalteca">Guatemalteca</option> 
+            <option value="Dominicana">Dominicana</option>
+            <option value="Nicaraguense">Nicaraguense</option> 
+          </select>
+
+        </div>
+        
+        <div id="area_interes" class="opcion" style="display:none">               <!--Área de interés-->
+          <p>Área de Interés</p>
+          <select name="caracteristica_area_interes" id="caracteristica_area_interes">
+            <option style="text-decoration: darkgray;" value="Seleccione una opción">Seleccione una opción</option>
+            <option value="Administrativa">Administrativa</option>
+            <option value="Profesional">Profesional</option>
+            <option value="Construcción">Construcción</option>
+            <option value="Seguridad">Seguridad</option>
+            <option value="Área Productiva">Construcción</option>
+          </select>
+        </div>
+        
+        <div id="nivel_estudios" class="opcion" style="display:none">             <!--Nivel de Estudios-->
+          <p>Nivel de Estudios</p>
+          <select name="caracteristica_nivel_estudios" id="caracteristica_nivel_estudios">
+            <option style="text-decoration: darkgray;" value="Seleccione una opción">Seleccione una opción</option>
+            <option value="Básica Incompleta">Básica Incompleta</option>
+            <option value="Básica Completa">Básica Completa</option>
+            <option value="Media incompleta">Media Incompleta</option>
+            <option value="Media Completa">Media Completa</option>
+            <option value="Técnica Incompleta">Técnica Incompleta</option>
+            <option value="Técnica Completa">Técnica Completa</option>
+            <option value="Superior incompleta">Superior incompleta</option>
+            <option value="Superior Completa">Superior Completa</option>
+
+          </select>
+        </div>
+        
+        <div id="comuna" class="opcion" style="display:none">                     <!--Comuna-->
+          <p>Comuna</p>
+          <select name="caracteristica_comuna" id="caracteristica_comuna">
+            <option style="text-decoration: darkgray;" value="Seleccione comuna">Seleccione una comuna</option>
+
+            <option value="La Cisterna">La Cisterna</option> 
+            <option value="El Bosque">El Bosque</option> 
+            <option value="San Miguel">San Miguel</option> 
+            <option value="San Joaquín">San Joaquín</option> 
+            <option value="La Granja">La Granja</option> 
+            <option value="La Pintana">La Pintana</option>
+            <option value="San Ramón">San Ramón</option>
+            <option value="La Pintana">La Pintana</option>
+            <option value="Lo Espejo">Lo Espejo</option>
+            <option value="Pedro Aguirre Cerda">Pedro Aguirre Cerda</option> 
+            <option value="Cerrillos">Cerrillos</option> 
+            <option value="Estación Central">Estación Central</option> 
+            <option value="Maipú">Maipú</option> 
+            <option value="Cerro Navia">Cerro Navia</option> 
+            <option value="Lo Prado">Lo Prado</option> 
+            <option value="Pudahuel">Pudahuel</option> 
+            <option value="Quinta Normal">Quinta Normal</option> 
+            <option value="Independencia">Independencia</option> 
+            <option value="Quilicura">Quilicura</option> 
+            <option value="Recoleta">Recoleta</option> 
+            <option value="Renca">Renca</option> 
+            <option value="Huechuraba">Huechuraba</option>
+            <option value="Las Condes">Las Condes</option> 
+            <option value="Lo Barnechea">Lo Barnechea</option> 
+            <option value="Providencia">Providencia</option> 
+            <option value="Vitacura">Vitacura</option> 
+            <option value="La Reina">La Reina</option> 
+            <option value="Macul">Macul</option> 
+            <option value="Ñuñoa">Ñuñoa</option> 
+            <option value="Peñalolén">Peñalolén</option> 
+            <option value="La Florida">La Florida</option> 
+            <option value="Santiago">Santiago</option> 
+            <option value="Conchalí">Conchalí</option> 
+          </select>
+        </div>
+        
+        <div id="tecnico_profesional" class="opcion" style="display:none">        <!--Técnico Profesional-->
+          <p>Técnico Profesional</p>
+          <input type="radio" name="caracteristica_tecnico_profesional" value="Si" id="tecnico-profesional-si">
+          <label for="tecnico-profesional-si"> Si  </label>
+          <input type="radio" name="caracteristica_tecnico_profesional" value="No" id="tecnico-profesional-no">
+          <label for="tecnico-profesional-no"> No  </label>    
+        </div>
+
+        <div id="discapacidad" class="opcion" style="display:none">               <!--Discapacidad-->
+          <p>Discapacidad</p>
+          <input type="radio" name="caracteristica_discapacidad" value="Si" id="discapacidad_si">
+          <label for="discapacidad_si">Si  </label>
+          <input type="radio" name="caracteristica_discapacidad" value="No" id="discapacidad_no">
+          <label for="discapacidad_no">No  </label>
+        </div>
+
+        <input type="submit" name="button" class="btn btn-primary" value="Buscar Usuarios" style="margin-bottom: 10px; margin-top: 10px;">
+    </div>
+      
+    </div>
+
+</form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+
+  $(function() {
+    $('#buscador_caracteristica').change(function() {
+      $('.opcion').hide();
+      $('#' + $(this).val()).show();
+    });
+  });
+
+</script>
+
+
 {% endblock %}

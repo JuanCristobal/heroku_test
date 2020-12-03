@@ -8,7 +8,7 @@
     color: black;
     border: 1px solid rgb(189, 189, 189);
     margin: 20px;
-    padding: 7px;
+    padding: 15px;
     overflow: auto;
   }
   .btn-primary{
@@ -17,14 +17,18 @@
     padding: 5px;
     margin: 20px;
   }
+  .usuario-datos{
+    margin: 20px;
+    padding: 5px;
+  }
 </style>
 
 <div class="usuario">
     <h4 class="usuario-nombre">
       {{usuario['nombre']}}  <small>RUT: {{usuario['rut']}}</small>
     </h4>
+    
     <p class="usuario-datos">Nacionalidad: {{usuario['nacionalidad']|default('Unknown', True)}}</p>
-
     <p class="usuario-datos">Fecha de Nacimiento: {{usuario['fecha_nacimiento']}}</p>
     <p class="usuario-datos">Email: {{usuario['email']}}</p>
     <p class="usuario-datos">Dirección: {{usuario['direccion']}}, {{usuario['comuna']}}</p>
@@ -34,9 +38,8 @@
     <p class="usuario-datos">Experiencia: {{usuario['experiencia']}}</p>
     <p class="usuario-datos">Trabajos Previos: {{usuario['trabajos_previos']}}</p>
     <p class="usuario-datos">Preferencias: {{usuario['preferencias']}}</p>
-
-    <input class="btn-primary" type="button"  value="Anexo 1">
-    <input class="btn-primary" type="button"  value="Anexo 3">
+    
+    <input class="btn-primary" type="button" name="boton-anexo1" value="Anexo 1">
 
   </div>
 </div>

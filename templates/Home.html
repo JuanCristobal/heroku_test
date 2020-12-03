@@ -1,10 +1,82 @@
 {% extends 'layout.html'%}
 
 {%block body%}
+<style>
+
+.cuerpo {
+  background-color: white;
+  border-radius: 150px;
+  height: 100px;
+  width: 80%;
+  margin: 20px;
+  margin-left: 10%;
+  align-content: space-around;
+  position: relative;
+  }
+
+.spaced {  
+  height: 400px;
+  width: 100%;
+  border-radius: 5px;
+  background-color:  rgba(46, 139, 86, 0);
+  margin: 20px;
+  display: inline;
+  flex-direction: column;
+  overflow: auto;
+  }
+
+.spaced li {
+  background-color:rgba(0, 123, 255, 0);
+  height: auto;
+  width:auto;
+  margin:auto;
+  border-radius: 5px;
+  border: 1px solid rgba(128, 128, 128, 0);
+  display: inline;
+  overflow: auto;
+  }
+
+.link-interno {
+  border-radius: 5px;
+  border: 1px solid rgb(1, 53, 83);    
+  padding: 5px;    
+  margin: 20px; 
+  height: auto;
+  width: auto;       
+  }
+
+a:link, a:visited {
+  background-color:grey;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius:5px;
+  }
+a:hover, a:active {
+  background-color: rgb(0, 123, 255);
+  }
+a:link{
+	text-decoration:none;	
+  }
+</style>
 
 <div class="jumbotron text-center">
-    <h1>Plataforma Online OMIL</h1>
-    <p class="lead">Bienvenidos a la nueva plataforma online de trabajo de la OMIL de la municipalidad de La Cisterna</p>
+  <h1>Plataforma Online OMIL</h1>
 
-  </div>
+  <p class="lead">Bienvenidos a la nueva plataforma online de trabajo de la OMIL de la municipalidad de La Cisterna</p>
+  
+</div>
+
+<div class="cuerpo">
+  <ul class="spaced">
+    <li><a class="link-interno" href="/register">Registrar Usuario Nuevo</a> </li>
+    <li><a class="link-interno" href="/info_general">Información General</a> </li>       
+    <li><a class="link-interno" href="/Ingresar-oferta">Ingresar Oferta Laboral</a></li>
+    <li><a class="link-interno" href="/perfil">Buscar Usuario</a> </li>
+  </ul>
+
+</div>
+
 {%endblock%}
