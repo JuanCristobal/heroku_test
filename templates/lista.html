@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<style>
+  .form-group{
+    background-color:rgb(223, 223, 222);
+    border-radius: 25px;
+    color: black;
+    border: 1px solid rgb(161, 161, 161);
+    margin: 20px;
+    padding: 10px;
+    overflow: auto;
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #ffffff;
+  }
+
+
+</style>
+
+<title>Resultados de Búsqueda</title>
+<h1>Resultados de Búsqueda</h1>
+
+<div class="form-group">
+
+    <p>El parametro entregado fue {{ buscado }} y la característica buscada fue {{ caracteristica }}. <br>
+       Se encontraron {{ cuenta }} usuarios con estas características.
+    </p>
+
+    <table>
+      <tr>
+        <th>Rut</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>{{ buscado }}</th>
+      </tr>
+
+      {% for dato in datos %}
+
+        <tr>
+          <td>{{ dato['rut'] }}</td>
+          <td>{{ dato['nombre'] }}</td>
+          <td>{{ dato['email'] }}</td>
+          <td>{{ dato['tel_not'] }}</td>
+
+          <td class="caracteristica">{{ dato[parametro] }}</td>
+        </tr>
+
+      {% endfor %}
+
+    </table>
+    <div style="margin: 10px;">
+      <a style="text-decoration: none; border: 1px solid #dddddd;" class="btn btn-primary" href="/perfil">Realizar nueva búsqueda</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,155 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+  <style>
+    .graficos{
+      margin-left: 25%;
+      margin-right: 25%;
+      
+    }
+
+  </style>
+
+  <body>
+    <title>{{ title }}</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+
+    <h1 style="margin: 20px;">{{ title }}</h1>
+
+    <div class="graficos">
+      <div class="grafico">
+        <p>Usuarios por Comuna</p>
+        <canvas id="chart" width="600" height="400"></canvas>
+      </div>
+      <script>
+        // bar chart data
+        var barData = {
+          labels : [
+            {% for item in labels %}
+            "{{ item }}",
+            {% endfor %}
+    ], 
+        
+          datasets : [{
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            data : [
+              {% for item in values %}
+                "{{ item }}",
+                {% endfor %}
+        ]
+            }
+          ]
+        }
+
+        
+      // get bar chart canvas
+      var mychart = document.getElementById("chart").getContext("2d");
+
+        steps = 10
+        max = {{max}}
+
+      // draw bar chart
+      new Chart(mychart).Bar(barData, {
+        scaleOverride: true,
+        scaleSteps: steps,
+        scaleStepWidth: Math.ceil(max / steps),
+        scaleStartValue: 0,
+        scaleShowVerticalLines: true,
+        scaleShowGridLines : true,
+        barShowStroke : true,
+        scaleShowLabels: true
+        }
+      );
+
+      </script>
+      <div class="grafico">
+        <p>Nacionalidad </p>
+        <canvas id="chart2" width="600" height="400"></canvas>
+      </div>
+      <script>
+        var barData2 = {
+            labels : [
+              {% for item in labels2 %}
+              "{{ item }}",
+              {% endfor %}
+      ], 
+          
+            datasets : [{
+              fillColor: "rgba(151,187,205,0.2)",
+              strokeColor: "rgba(151,187,205,1)",
+              pointColor: "rgba(151,187,205,1)",
+              data : [
+                {% for item in values2 %}
+                  "{{ item }}",
+                  {% endfor %}
+          ]
+              }
+            ]
+          }
+          var mychart2 = document.getElementById("chart2").getContext("2d");
+          steps = 10
+          max = {{max}}
+          new Chart(mychart2).Bar(barData2, {
+          scaleOverride: true,
+          scaleSteps: steps,
+          scaleStepWidth: Math.ceil(max / steps),
+          scaleStartValue: 0,
+          scaleShowVerticalLines: true,
+          scaleShowGridLines : true,
+          barShowStroke : true,
+          scaleShowLabels: true
+          }
+        );
+
+      </script>
+<!--
+      <div class="grafico">
+        <p>Fecha de Aplicación </p>
+        <canvas id="chart3" width="600" height="400"></canvas>
+
+      </div>
+          <script>
+          var barData3 = {
+              labels : [
+                {% for item in labels3 %}
+                "{{ item }}",
+                {% endfor %}
+        ], 
+            
+              datasets : [{
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                data : [
+                  {% for item in values3 %}
+                    "{{ item }}",
+                    {% endfor %}
+            ]
+                }
+              ]
+            }
+            var mychart3 = document.getElementById("chart3").getContext("3d");
+            steps = 10
+            max = {{max}}
+            new Chart(mychart3).Bar(barData3, {
+            scaleOverride: true,
+            scaleSteps: steps,
+            scaleStepWidth: Math.ceil(max / steps),
+            scaleStartValue: 0,
+            scaleShowVerticalLines: true,
+            scaleShowGridLines : true,
+            barShowStroke : true,
+            scaleShowLabels: true
+            }
+          );
+  
+        </script>-->
+    </div>
+      
+  </body>
+
+
+{% endblock %}

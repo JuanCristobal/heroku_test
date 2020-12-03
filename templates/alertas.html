@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+<style>
+    .alerta{
+        border: 1px solid grey;
+        height: 25%;
+        width: 30%;
+        margin: auto;
+        margin-top: 15%;
+    }
+    .body{
+        background: grey;
+    }
+</style>
+
+{% block body %}
+    <!--
+        Alerta 1: Usuario ya existe
+        Alerta 2: Usuario ingresado correctamene
+        Alerta 3: Error con algún campo, asegúrese de que todos fueron ingresados correctamente
+    -->
+    <div class="body"></div>
+    <!--{% if alerta == 1%}-->
+        <div style="background:  #F84F31 ;" class="alerta">
+            <p>El usuario ingresado ya está registrado, para ver su información dirígase al perfil de usuario</p>
+        </div>
+    {% elif alerta == 2%}
+        <div style="background: #23C552;" class="alerta">
+            <p>Usuario ingresado correctamente</p>
+        </div>
+    {% elif alerta == 3%}
+        <div style="background: #F84F31;" class="alerta">
+            <p>Ocurrió un error, asegúrese de que los datos fueron ingresados correctamente</p>
+        </div>
+{% endblock %}
