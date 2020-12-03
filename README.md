@@ -44,3 +44,7 @@ Este archivo contiene una lista con las librerías y sus versiones que usa herok
 
 Este archivo indica al servidor de Heroku el tipo de aplicación que se ejecutará, en este caso web, y además le indica el archivo main de esta, que corresponde a app.py, explicado previamente. 
 
+## Carpeta Templates
+
+Esta carpeta contiene los templates que se utilizan para las páginas de la aplicación, contiene los archivos html y en esta se puede realizar trabajo de front end, en lo que respecta al diseño de las páginas, disposición de las componentes de estas, etc.
+
