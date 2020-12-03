@@ -51,11 +51,11 @@ application = app
 app.secret_key = "secret1234"
 
 # Config MySQL
-app.config['MYSQL_HOST'] = 'sm9j2j5q6c8bpgyq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com'
-app.config['MYSQL_USER'] = 'ukg47wvunvh3d7eu'
-app.config['MYSQL_PASSWORD'] = 'iu55qaryfhglxqni'
-app.config['MYSQL_DB'] = 'fcqf03dhrhk903lo'
-app.config['MYSQL_PORT'] = 3306
+app.config['MYSQL_HOST'] = 'HOST'
+app.config['MYSQL_USER'] = 'USER'
+app.config['MYSQL_PASSWORD'] = 'PASSWORD'
+app.config['MYSQL_DB'] = 'DB'
+app.config['MYSQL_PORT'] = port
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # init MYSQL
 mysql = MySQL(app)
