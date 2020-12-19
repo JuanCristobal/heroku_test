@@ -1,6 +1,11 @@
 
 # OMIL APP
 
+Integrantes: Juan Cristóbal Lisboa 
+             Tomás Reyes
+             Daniel Taiba 
+             Thomas Wachter
+
 ## Acerca de la Aplicación
 
 Esta aplicación web surge de la problemática presente en la Oficina Municipal de Información Laboral (OMIL) de la comuna de La Cisterna, en la cual las funcionarias destinaban una enorme cantidad de tiempo en completar anexos 1 cada vez que un usuario acudía en búsqueda de empleo. Debido a esto, es que se decidió por automatizar dicho proceso y a la vez facilitar el acceso a la información de las funcionarias, que, cabe decir, guardaban la información en archivos excel que no se compartían entre ellas, generando desincronización de la información y tiempos de acceso a esta que podían ser fácilmente reducidos. Con la implementación de esta solución se logró reducir el tiempo de llenado del anexo 1 de un promedio de 5 minutos a tan solo 2.05 minutos por anexo, representanto una baja de un 59%, debido en gran parte a la reducción en las operaciones necesarias para registrar a un usuario que pasaron de 52 a solo 12, lo que es una mejora de un 76,9%
